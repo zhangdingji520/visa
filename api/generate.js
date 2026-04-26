@@ -77,7 +77,7 @@ export default async function handler(req, res) {
     let content = data.choices[0].message.content;
     // 去除可能的 markdown 代码块符号
     content = content.replace(/```json/g, '').replace(/```/g, '').trim();
-
+    console.log('AI 返回内容：', content);
     const json = JSON.parse(content);
     return res.status(200).json(json);
 
